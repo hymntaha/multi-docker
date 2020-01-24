@@ -8,17 +8,17 @@ script:
   - docker run -e CI=true hymntaha/react-test npm test
 
 after_success:
-  - docker build -t hymntaha/multi-client ./client
-  - docker build -t hymntaha/multi-nginx ./nginx
-  - docker build -t hymntaha/multi-server ./server
-  - docker build -t hymntaha/multi-worker ./worker
+  - docker build -t tahanyc/multi-client ./client
+  - docker build -t tahanyc/multi-nginx ./nginx
+  - docker build -t tahanyc/multi-server ./server
+  - docker build -t tahanyc/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push hymntaha/multi-client
-  - docker push hymntaha/multi-nginx
-  - docker push hymntaha/multi-server
-  - docker push hymntaha/multi-worker
+  - docker push tahanyc/multi-client
+  - docker push tahanyc/multi-nginx
+  - docker push tahanyc/multi-server
+  - docker push tahanyc/multi-worker
 
 #deploy:
 #  provider: elasticbeanstalk
