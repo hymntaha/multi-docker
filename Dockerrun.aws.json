@@ -3,7 +3,15 @@
   "containerDefinitions": [
     {
       "name": "client",
-      "image": "tahanyc/multi-client"
+      "image": "tahanyc/multi-client",
+      "hostname":"client",
+      "essential": false
+    },
+    {
+      "name": "server",
+      "image": "tahanyc/multi-server",
+      "hostname":"server",
+      "essential": false
     }
   ]
 }
