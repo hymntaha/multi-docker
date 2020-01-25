@@ -10,8 +10,20 @@
     {
       "name": "server",
       "image": "tahanyc/multi-server",
-      "hostname":"server",
+      "hostname":"api",
       "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "tahanyc/multi-worker",
+      "hostname":"worker",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "tahanyc/multi-nginx",
+      "hostname":"nginx",
+      "essential": true
     }
   ]
 }
