@@ -3,10 +3,8 @@ services:
   - docker
 before_install:
   - docker build -t hymntaha/react-test -f ./client/Dockerfile.dev ./client
-
 script:
   - docker run -e CI=true hymntaha/react-test npm test
-
 after_success:
   - docker build -t tahanyc/multi-client ./client
   - docker build -t tahanyc/multi-nginx ./nginx
@@ -17,9 +15,8 @@ after_success:
   - docker push tahanyc/multi-nginx
   - docker push tahanyc/multi-server
   - docker push tahanyc/multi-worker
-
 deploy:
-  edge:true
+  edge: true
   provider: elasticbeanstalk
   region: us-east-1
   app: multi-docker
@@ -29,4 +26,5 @@ deploy:
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
