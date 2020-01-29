@@ -7,14 +7,14 @@ spec:
   selector:
     matchLabels:
       component: web
-    template:
-      metadata:
-        label:
-          component: web
-      spec:
-        containers:
-          - name: client
-            image: tahanyc/multi-client
-            ports:
-              - containerPort: 3000
+  template:
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: client
+          image: tahanyc/multi-client
+          ports:
+            - containerPort: 3000
 
